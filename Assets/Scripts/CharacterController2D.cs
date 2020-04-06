@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This class controls how the character behave based on the value given from PlayerMovement.
+/// References: https://youtu.be/dwcT-Dch0bA.
+/// Source: : https://bit.ly/2MQAkmu.
+/// </summary>
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
@@ -61,11 +66,12 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Used to move the character left/right.
+	/// Used to move the character to the left/right.
+	/// Also controls the crouching and jumping mechanism.
 	/// </summary>
-	/// <param name="move">The value which is the speed of the movement.</param>
-	/// <param name="crouch"></param>
-	/// <param name="jump"></param>
+	/// <param name="move">The value in which is the speed of the movement.</param>
+	/// <param name="crouch">The state to check whether the character should crouch or not.</param>
+	/// <param name="jump">The state to check whether the character can jump or not.</param>
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
